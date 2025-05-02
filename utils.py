@@ -8,7 +8,10 @@ def lire_csv(chemin):
     Lire un fichier CSV et retourner la liste des lignes.
     Chaque dictionnaire correspond à une ligne du fichier.
     """
-    pass
+    with open(str(chemin), "r", encoding="utf-8") as f :
+        fichier = csv.reader(f)
+        for ligne in fichier:
+            print (ligne)
 
 def sauvegarder_json(data, chemin):
     """
