@@ -11,8 +11,8 @@ class Tournoi:
         Initialise aussi une liste vide pour les joueurs et pour les matchs.
         """
         self.nom = nom
-        self.joueurs = []
-        self.matchs = []
+        self.joueurs = []  # Liste d'objets Joueur
+        self.matchs = []   # Liste d'objets Match
 
     def charger_joueurs(self, chemin_csv):
         """
@@ -36,7 +36,7 @@ class Tournoi:
         Utiliser la fonction lire_csv() du fichier utils.py.
         """
         pass
-        
+
 
     def saisir_scores(self):
         """
@@ -83,7 +83,13 @@ class Tournoi:
         - la liste des joueurs (convertis en dictionnaires à l'aide de la fonction to_dict déjà implémenté dans la classe Joueur)
         Utiliser la fonction sauvegarder_json() du fichier utils.py.
         """
-        pass
+        data = {}
+        for joueur in self.joueurs:
+            data[self.nom] = []  # Liste ayant une clé et une valeur qui est une liste de dictionnaires des infos sur les joueurs
+            data[self.nom].append(Joueur.to_dict(joueur))
+
+        # Sauvegarde des données dans un fichier json
+        utils.sauvegarder_json(data, chemin_json)
 
     def generer_rapport(self, chemin_texte):
         """
