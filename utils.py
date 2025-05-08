@@ -29,3 +29,5 @@ def ecrire_texte(contenu, chemin):
     - chemin : chemin du fichier texte à créer
     """
     pass
+
+lire_csv("./data/joueurs.csv")

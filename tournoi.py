@@ -21,11 +21,16 @@ class Tournoi:
         Pour chaque ligne, créer un objet Joueur et l'ajouter à la liste des joueurs.
         Utiliser la fonction lire_csv() du fichier utils.py.
         """
-        with open(chemin_csv, "r", encoding="utf-8") as f:
-            lecteur = utils.lire_csv(f)
-            for ligne in lecteur:
-                pseudo = ligne[0]
-                joueur = Joueur(pseudo)
+        # Fait la fonction lire.csv qui vas lire le fichier csv
+        lecteur = utils.lire_csv(chemin_csv)
+        # Boucle pour lire les lignes une par une 
+        for ligne in lecteur:
+            # Enregistre les nom du joueurs dans une variable
+            pseudo = ligne[0]
+            # Crée un objet du joueur
+            joueur = Joueur(pseudo)
+            # Ajout l'objet dans la liste self.joueurs
+            self.joueurs.append(joueur)
 
     def charger_matchs(self, chemin_csv):
         """
@@ -35,7 +40,17 @@ class Tournoi:
         Pour chaque ligne, créer un objet Match et l'ajouter à la liste des matchs.
         Utiliser la fonction lire_csv() du fichier utils.py.
         """
-        pass
+        # Fait la fonction lire.csv qui vas lire le fichier csv
+        lecteur = utils.lire_csv(chemin_csv)
+        # Boucle pour lire les lignes une par une 
+        for ligne in lecteur:
+            # Enregistrer les joueurs dans une variable
+            joueur1 = ligne[0]
+            joueur2 = ligne[1]
+            # Confirme si les joueurs sont enregistrer dans self.joueurs
+            if joueur1 in self.joueurs and joueur2 in self.joueurs:
+                # Ajoute les deux joueurs dans self.matchs
+                self.matchs.append(ligne)
         
 
     def saisir_scores(self):
