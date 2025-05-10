@@ -27,7 +27,7 @@ class Tournoi:
         for ligne in lecteur:
             # Enregistre les nom du joueurs dans une variable
             pseudo = ligne[0]
-            # Crée un objet du joueur et l'ajout au tournoi
+            # Crée un objet du joueur et l'ajout au tourno
             self.joueurs.append(Joueur(pseudo))
 
     def charger_matchs(self, chemin_csv):
