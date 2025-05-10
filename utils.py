@@ -20,7 +20,7 @@ def sauvegarder_json(data, chemin):
     - chemin : chemin du fichier JSON à écrire
     Utiliser json.dump avec indentation pour que le fichier soit lisible.
     """
-    
+    pass
 
 def ecrire_texte(contenu, chemin):
     """
@@ -28,6 +28,7 @@ def ecrire_texte(contenu, chemin):
     - contenu : texte à écrire
     - chemin : chemin du fichier texte à créer
     """
-    pass
+    with open(chemin, "w") as f:
+        f.write(contenu)
 
 lire_csv("./data/joueurs.csv")
