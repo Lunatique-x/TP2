@@ -10,8 +10,10 @@ def lire_csv(chemin):
     """
     with open(str(chemin), "r", encoding="utf-8") as f :
         fichier = csv.reader(f)
+        contenue_par_ligne = []
         for ligne in fichier:
-            print (ligne)
+            contenue_par_ligne.append(ligne)
+        return contenue_par_ligne
 
 def sauvegarder_json(data, chemin):
     """
@@ -31,5 +33,3 @@ def ecrire_texte(contenu, chemin):
     """
     with open(chemin, "w") as f:
         f.write(contenu)
-
-lire_csv("./data/joueurs.csv")

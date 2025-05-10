@@ -27,10 +27,8 @@ class Tournoi:
         for ligne in lecteur:
             # Enregistre les nom du joueurs dans une variable
             pseudo = ligne[0]
-            # Crée un objet du joueur
-            joueur = Joueur(pseudo)
-            # Ajout l'objet dans la liste self.joueurs
-            self.joueurs.append(joueur)
+            # Crée un objet du joueur et l'ajout au tournoi
+            self.joueurs.append(Joueur(pseudo))
 
     def charger_matchs(self, chemin_csv):
         """
@@ -40,23 +38,13 @@ class Tournoi:
         Pour chaque ligne, créer un objet Match et l'ajouter à la liste des matchs.
         Utiliser la fonction lire_csv() du fichier utils.py.
         """
-<<<<<<< HEAD
+
         # Fait la fonction lire.csv qui vas lire le fichier csv
         lecteur = utils.lire_csv(chemin_csv)
         # Boucle pour lire les lignes une par une 
         for ligne in lecteur:
-            # Enregistrer les joueurs dans une variable
-            joueur1 = ligne[0]
-            joueur2 = ligne[1]
-            # Confirme si les joueurs sont enregistrer dans self.joueurs
-            if joueur1 in self.joueurs and joueur2 in self.joueurs:
-                # Ajoute les deux joueurs dans self.matchs
-                self.matchs.append(ligne)
-        
-=======
-        pass
-
->>>>>>> origin/fanny_main
+            # Crée un objet Match et l'ajoute a self.matchs
+            self.matchs.append(Match(ligne[0],ligne[1]))
 
     def saisir_scores(self):
         """
@@ -120,4 +108,7 @@ class Tournoi:
         - Le classement final
         Utiliser la fonction ecrire_texte() du fichier utils.py.
         """
+        contenue = f"Nom : {self.nom}\n Match : {self.matchs}"
+
+        utils.ecrire_texte(chemin_texte)
         pass
