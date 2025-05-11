@@ -123,6 +123,11 @@ class Tournoi:
             contenu = f"Match: {match.joueur1} vs {match.joueur2} | Score: {match.score1} - {match.score2}\n"
             # Ajoute le contenu du match au rapport
             contenue += contenu
+        # Classement des joueurs
+        self.joueurs.sort(key=lambda j: j.victoires, reverse=True)
+        contenue += "Classement des joueurs :\n"
+        for joueur in self.joueurs:
+            contenue += f"{joueur.pseudo} - Victoires : {joueur.victoires}"
 
         # Fait un fichier texte avec le contenue du rapport
         utils.ecrire_texte(contenue, chemin_texte)
