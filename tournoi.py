@@ -115,17 +115,18 @@ class Tournoi:
         - Le classement final
         Utiliser la fonction ecrire_texte() du fichier utils.py.
         """
-        contenue = f"Rapport du tournoi : {self.nom}\n\n"
+        contenue = f"Nom du tournoi : {self.nom}\n\n"
 
         # Liste des matchs
+        contenue += "Match :\n"
         for match in self.matchs:
             # Crée une variable pour le contenu du rapport
-            contenu = f"Match: {match.joueur1} vs {match.joueur2} | Score: {match.score1} - {match.score2}\n"
+            contenu = f"{match.joueur1} vs {match.joueur2} | Score: {match.score1} - {match.score2}\n"
             # Ajoute le contenu du match au rapport
             contenue += contenu
         # Classement des joueurs
         self.joueurs.sort(key=lambda j: j.victoires, reverse=True)
-        contenue += "Classement des joueurs :\n"
+        contenue += "\nClassement des joueurs :\n"
         for joueur in self.joueurs:
             contenue += f"{joueur.pseudo} - Victoires : {joueur.victoires}\n"
 
