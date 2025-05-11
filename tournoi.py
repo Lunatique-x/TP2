@@ -92,9 +92,15 @@ class Tournoi:
         Utiliser la fonction sauvegarder_json() du fichier utils.py.
         """
         data = {}
+
+        # Nom du tournoi
+        data["nom"] = self.nom
+
+        # Liste des joueurs
+        data["joueurs"] = []
+
         for joueur in self.joueurs:
-            data[self.nom] = []  # Liste ayant une clé et une valeur qui est une liste de dictionnaires des infos sur les joueurs
-            data[self.nom].append(Joueur.to_dict(joueur))
+            data["joueurs"].append(joueur.todict())
 
         # Sauvegarde des données dans un fichier json
         utils.sauvegarder_json(data, chemin_json)
