@@ -127,7 +127,7 @@ class Tournoi:
         self.joueurs.sort(key=lambda j: j.victoires, reverse=True)
         contenue += "Classement des joueurs :\n"
         for joueur in self.joueurs:
-            contenue += f"{joueur.pseudo} - Victoires : {joueur.victoires}"
+            contenue += f"{joueur.pseudo} - Victoires : {joueur.victoires}\n"
 
         # Fait un fichier texte avec le contenue du rapport
         utils.ecrire_texte(contenue, chemin_texte)
