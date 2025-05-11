@@ -100,7 +100,8 @@ class Tournoi:
         data["joueurs"] = []
 
         for joueur in self.joueurs:
-            data["joueurs"].append(joueur.todict())
+            # Crée un dictionnaire pour chaque joueur
+            data["joueurs"].append(joueur.to_dict())
 
         # Sauvegarde des données dans un fichier json
         utils.sauvegarder_json(data, chemin_json)
@@ -114,7 +115,14 @@ class Tournoi:
         - Le classement final
         Utiliser la fonction ecrire_texte() du fichier utils.py.
         """
-        contenue = f"Nom : {self.nom}\n Match : {self.matchs}"
+        contenue = f"Rapport du tournoi : {self.nom}\n\n"
 
-        utils.ecrire_texte(chemin_texte)
-        pass
+        # Liste des matchs
+        for match in self.matchs:
+            # Crée une variable pour le contenu du rapport
+            contenu = f"Match: {match.joueur1} vs {match.joueur2} | Score: {match.score1} - {match.score2}\n"
+            # Ajoute le contenu du match au rapport
+            contenue += contenu
+
+        # Fait un fichier texte avec le contenue du rapport
+        utils.ecrire_texte(contenue, chemin_texte)
